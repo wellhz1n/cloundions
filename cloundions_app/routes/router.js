@@ -11,8 +11,14 @@ const Stack = createStackNavigator();
 
 const Router = () => {
     return (<NavigationContainer>
-        <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
+        <Stack.Navigator >
+            <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{
+                    headerShown: false,
+                }}
+            />
         </Stack.Navigator>
     </NavigationContainer>);
 };
