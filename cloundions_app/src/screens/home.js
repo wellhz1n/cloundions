@@ -10,10 +10,10 @@ import {
 
 import Colors from "../../assets/constants/Colors.js";
 import EstilosGerais from "../../assets/constants/Styles.js";
-import Icon from 'react-native-vector-icons/Ionicons';
 
 
 import InformacoesPrincipais from '../../src/components/InformacoesPrincipais';
+import WeatherCard from '../components/weatherCard.js';
 
 
 // import { Container } from './styles';
@@ -43,42 +43,22 @@ const home = ({ navigation }) => {
                 <View
                     style={styles.footerGraph}
                 >
-                    <View style={styles.weatherCard}>
-                        <Text style={styles.weatherCardTitle}>Segunda</Text>
-                        <Icon
-                            name="rainy-sharp"
-                            size={40}
-                            color={Colors.secondary}
-                        />
-                        <Text>30°C</Text>
-                    </View>
-                    <View style={styles.weatherCard}>
-                        <Text style={styles.weatherCardTitle}>Terça</Text>
-                        <Icon
-                            name="sunny-sharp"
-                            size={40}
-                            color={Colors.secondary}
-                        />
-                        <Text>30°C</Text>
-                    </View>
-                    <View style={styles.weatherCard}>
-                        <Text style={styles.weatherCardTitle}>Quarta</Text>
-                        <Icon
-                            name="thunderstorm-sharp"
-                            size={40}
-                            color={Colors.secondary}
-                        />
-                        <Text>30°C</Text>
-                    </View>
-                    <View style={styles.weatherCard}>
-                        <Text style={styles.weatherCardTitle}>Quinta</Text>
-                        <Icon
-                            name="cloudy-sharp"
-                            size={40}
-                            color={Colors.secondary}
-                        />
-                        <Text>30°C</Text>
-                    </View>
+                    <WeatherCard
+                        Title="Segunda"
+                        Icon="sunny-sharp"
+                        Temperature={30} ></WeatherCard>
+                    <WeatherCard
+                        Title="Terça"
+                        Icon="rainy-sharp"
+                        Temperature={24} ></WeatherCard>
+                    <WeatherCard
+                        Title="Quarta"
+                        Icon="thunderstorm-sharp"
+                        Temperature={20} ></WeatherCard>
+                    <WeatherCard
+                        Title="Quinta"
+                        Icon="cloudy-sharp"
+                        Temperature={18} ></WeatherCard>
                 </View>
             </ImageBackground>
         </SafeAreaView >
@@ -107,29 +87,7 @@ const styles = StyleSheet.create({
         flex: 3,
         flexDirection: 'row',
     },
-    weatherCard: {
-        marginHorizontal: 5,
-        height: 100,
-        width: 80,
-        shadowColor: '#000',
-        shadowOffset: {
-            height: 0,
-            width: 0
-        },
-        shadowOpacity: .8,
-        elevation: 2,
-        borderRadius: 16,
-        backgroundColor: '#fff',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 10
-    },
-    weatherCardTitle: {
-        color: Colors.primary,
-        fontSize: 12,
-        marginTop: -6,
-        paddingBottom: 10
-    }
+
 
 
 })
