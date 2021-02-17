@@ -15,7 +15,7 @@ const WeatherCard = (props) => {
             <Text style={styles.weatherCardTitle}>{props.Title}</Text>
             <Icon
                 name={props.Icon}
-                size={40}
+                size={30}
                 color={Colors.secondary}
             />
             <Text>{props.Temperature}°C</Text>
