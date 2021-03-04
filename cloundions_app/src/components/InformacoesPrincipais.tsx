@@ -6,14 +6,21 @@ import {
     StyleSheet
 } from 'react-native';
 
-import EstilosGerais from "../../assets/constants/Styles.js";
-import Colors from "../../assets/constants/Colors.js";
+import EstilosGerais from "../../assets/constants/Styles";
+import Colors from "../../assets/constants/Colors";
 
 /**
  * 
  * @param {{graus: string, cidade: string, estado: string}} props 
  */
-const InformacoesPrincipais = (props) => {
+
+interface InformacoesPrincipaisProps {
+    graus: string;
+    cidade: string;
+    estado: string;
+}
+
+const InformacoesPrincipais = (props: InformacoesPrincipaisProps) => {
     return (
         <View>
             <View style={[styles.grausWrapper, EstilosGerais.BoxShadow]}>
@@ -56,7 +63,7 @@ const styles = StyleSheet.create({
     estadoText: {
         fontSize: 40,
         color: Colors.white,
-        fontWeight:'bold',
+        fontWeight: 'bold',
         textAlign: 'center'
     },
     cidadeWrapper: {

@@ -5,11 +5,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 // import { Container } from './styles';
 
-/**
- * 
- * @param {{Title: string, Temperature: string,Icon:string }} props 
- */
-const WeatherCard = (props) => {
+
+
+interface WeatherCardProps{
+    Title:string;
+    Icon:string;
+    Temperature:number;
+}
+
+const WeatherCard = (props:WeatherCardProps) => {
     return (
         <View style={styles.weatherCard}>
             <Text style={styles.weatherCardTitle}>{props.Title}</Text>
