@@ -1,28 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Colors from '../../assets/constants/Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import { ConditionSlug } from '../../classes/Weather';
+import ConditionColorUtils from '../../utils/ConditionColorUtils';
 
 // import { Container } from './styles';
 
 
 
-interface WeatherCardProps{
-    Title:string;
-    Icon:string;
-    Temperature:number;
+interface WeatherCardProps {
+    Title: string;
+    Icon: string;
+    TemperatureMax: number;
+    TemperatureMin: number;
+    condicao: ConditionSlug
 }
 
-const WeatherCard = (props:WeatherCardProps) => {
+const WeatherCard = (props: WeatherCardProps) => {
+
+    const [colorUtils, setColorUtils] = useState(ConditionColorUtils.getColorByCondition(props.condicao));
+
     return (
         <View style={styles.weatherCard}>
             <Text style={styles.weatherCardTitle}>{props.Title}</Text>
             <Icon
                 name={props.Icon}
                 size={30}
-                color={Colors.secondary}
+                color={colorUtils.corPrimaria}
             />
-            <Text>{props.Temperature}°C</Text>
+            <Text style={{ fontWeight: 'bold', color: Colors.quaternary }}>{props.TemperatureMax}°C</Text>
+            <Text style={{ fontSize: 10, color: Colors.terciary }}>{props.TemperatureMin}°C</Text>
+
         </View>
     );
 }
@@ -47,7 +57,8 @@ const styles = StyleSheet.create({
     weatherCardTitle: {
         color: Colors.primary,
         fontSize: 12,
-        marginTop: -6,
+        marginTop: -4,
+        fontWeight:'bold',
         paddingBottom: 10
     }
 })

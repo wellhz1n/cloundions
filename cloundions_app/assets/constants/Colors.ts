@@ -5,6 +5,7 @@ export default  {
     quaternary: "#FEBE5D",
     white: "white",
     background1: "#E0D5F8",
-    background2: "#F2EEFC"
+    background2: "#F2EEFC",
+
 
 }
